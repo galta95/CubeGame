@@ -4,7 +4,7 @@
 
 A Nice game that examples uses of js most common uses.
 
-https://galta95.github.io/CubeGame/
+[click here to play](https://galta95.github.io/CubeGame/)
 
 ## Why
 
