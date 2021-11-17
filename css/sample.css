@@ -1,0 +1,32 @@
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+#bg {
+  background-image: url("../images/wallpaper.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px);
+  background-size: cover;
+  opacity: 0.65;
+}
+
+#circle1,
+#circle2,
+#circle3,
+#circle4 {
+  width: 100px;
+  height: 105px;
+}
+
+#timer {
+  font-family: fantasy;
+}
+
+#title {
+  font-family: fantasy;
+  -webkit-text-stroke: 2px black; /* width and color */
+}
