@@ -3,6 +3,7 @@ const STATE = {
   circle2: {},
   circle3: {},
   circle4: {},
+  circles: [],
   circle_num: 4,
   timer: {},
   max_top: 0,
@@ -25,15 +26,10 @@ const initCirclesPos = () => {
   updateElmPos(STATE.circle3, max_top, randomInt(max_left));
   updateElmPos(STATE.circle4, randomInt(max_top), 0);
 
-  updateElmColor(STATE.circle1);
-  updateElmColor(STATE.circle2);
-  updateElmColor(STATE.circle3);
-  updateElmColor(STATE.circle4);
-
-  updateElmDirection(STATE.circle1);
-  updateElmDirection(STATE.circle2);
-  updateElmDirection(STATE.circle3);
-  updateElmDirection(STATE.circle4);
+  STATE.circles.forEach((circle) => {
+    updateElmColor(circle);
+    updateElmDirection(circle);
+  });
 };
 
 const addPlayEventListeners = (play_btn) => {
@@ -71,6 +67,8 @@ const init = () => {
   STATE.circle3 = document.querySelector("#circle3");
   STATE.circle4 = document.querySelector("#circle4");
   STATE.timer = document.querySelector("#timer");
+
+  STATE.circles = [STATE.circle1, STATE.circle2, STATE.circle3, STATE.circle4];
 
   const play_btn = document.querySelector(PLAYBTNID);
   const stop_btn = document.querySelector(STOPBTNID);

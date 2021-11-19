@@ -1,9 +1,8 @@
 const createElms = () => {
   const rectangle = document.querySelector("#box");
-  rectangle.appendChild(STATE.circle1);
-  rectangle.appendChild(STATE.circle2);
-  rectangle.appendChild(STATE.circle3);
-  rectangle.appendChild(STATE.circle4);
+  STATE.circles.forEach((circle) => {
+    rectangle.appendChild(circle);
+  });
 };
 
 const randomInt = (max) => {
@@ -24,17 +23,6 @@ const updateElmColor = (elm) => {
 const updateElmDirection = (elm) => {
   const directions = ["r", "l"];
   elm.direction = directions[randomInt(directions.length)];
-};
-
-const clacPos = (pos, limit, elm) => {
-  elm.direction === "r"
-    ? pos >= limit
-      ? (elm.direction = "l")
-      : (pos += 2)
-    : pos <= 0
-    ? (elm.direction = "r")
-    : (pos -= 2);
-  return pos;
 };
 
 const playDisable = () => {
@@ -66,4 +54,15 @@ const inputEnable = () => {
   const input_btn = document.querySelector(INPUTBTNID);
   input.value = "";
   input_btn.disabled = false;
+};
+
+const clacPos = (pos, limit, elm) => {
+  elm.direction === "r"
+    ? pos >= limit
+      ? (elm.direction = "l")
+      : (pos += 2)
+    : pos <= 0
+    ? (elm.direction = "r")
+    : (pos -= 2);
+  return pos;
 };
