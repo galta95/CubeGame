@@ -1,4 +1,4 @@
-const g_state = {
+const STATE = {
   circle1: {},
   circle2: {},
   circle3: {},
@@ -17,65 +17,65 @@ const initCirclesPos = () => {
   const max_top = boxSize.height - border_size - circle_size;
   const max_left = boxSize.width - border_size - circle_size;
 
-  g_state.max_top = max_top;
-  g_state.max_left = max_left;
+  STATE.max_top = max_top;
+  STATE.max_left = max_left;
 
-  updateElmPos(g_state.circle1, 0, randomInt(max_left));
-  updateElmPos(g_state.circle2, randomInt(max_top), max_left);
-  updateElmPos(g_state.circle3, max_top, randomInt(max_left));
-  updateElmPos(g_state.circle4, randomInt(max_top), 0);
+  updateElmPos(STATE.circle1, 0, randomInt(max_left));
+  updateElmPos(STATE.circle2, randomInt(max_top), max_left);
+  updateElmPos(STATE.circle3, max_top, randomInt(max_left));
+  updateElmPos(STATE.circle4, randomInt(max_top), 0);
 
-  updateElmColor(g_state.circle1);
-  updateElmColor(g_state.circle2);
-  updateElmColor(g_state.circle3);
-  updateElmColor(g_state.circle4);
+  updateElmColor(STATE.circle1);
+  updateElmColor(STATE.circle2);
+  updateElmColor(STATE.circle3);
+  updateElmColor(STATE.circle4);
 
-  updateElmDirection(g_state.circle1);
-  updateElmDirection(g_state.circle2);
-  updateElmDirection(g_state.circle3);
-  updateElmDirection(g_state.circle4);
+  updateElmDirection(STATE.circle1);
+  updateElmDirection(STATE.circle2);
+  updateElmDirection(STATE.circle3);
+  updateElmDirection(STATE.circle4);
 };
 
 const addPlayEventListeners = (play_btn) => {
-  play_btn.addEventListener("click", play);
-  play_btn.addEventListener("click", stopEnable);
-  play_btn.addEventListener("click", startTimer);
-  play_btn.addEventListener("click", playDisable);
-  play_btn.addEventListener("click", inputDisable);
-  play_btn.addEventListener("click", collision);
-  play_btn.addEventListener("click", stopOneCircle);
+  play_btn.addEventListener(CLICK, play);
+  play_btn.addEventListener(CLICK, stopEnable);
+  play_btn.addEventListener(CLICK, startTimer);
+  play_btn.addEventListener(CLICK, playDisable);
+  play_btn.addEventListener(CLICK, inputDisable);
+  play_btn.addEventListener(CLICK, collision);
+  play_btn.addEventListener(CLICK, stopOneCircle);
 };
 
 const addStopEventListeners = (stop_btn) => {
-  stop_btn.addEventListener("click", stop);
-  stop_btn.addEventListener("click", playEnable);
-  stop_btn.addEventListener("click", inputEnable);
-  stop_btn.addEventListener("click", stopTimer);
-  stop_btn.addEventListener("click", stopDisable);
+  stop_btn.addEventListener(CLICK, stop);
+  stop_btn.addEventListener(CLICK, playEnable);
+  stop_btn.addEventListener(CLICK, inputEnable);
+  stop_btn.addEventListener(CLICK, stopTimer);
+  stop_btn.addEventListener(CLICK, stopDisable);
 };
 
 const addResetEventListeners = (reset_btn) => {
-  reset_btn.addEventListener("click", reset);
-  reset_btn.addEventListener("click", stop);
-  reset_btn.addEventListener("click", resetTimer);
-  reset_btn.addEventListener("click", createElms);
-  reset_btn.addEventListener("click", initCirclesPos);
-  reset_btn.addEventListener("click", playEnable);
-  reset_btn.addEventListener("click", stopDisable);
-  reset_btn.addEventListener("click", inputEnable);
+  reset_btn.addEventListener(CLICK, reset);
+  reset_btn.addEventListener(CLICK, stop);
+  reset_btn.addEventListener(CLICK, resetTimer);
+  reset_btn.addEventListener(CLICK, createElms);
+  reset_btn.addEventListener(CLICK, initCirclesPos);
+  reset_btn.addEventListener(CLICK, playEnable);
+  reset_btn.addEventListener(CLICK, stopDisable);
+  reset_btn.addEventListener(CLICK, inputEnable);
 };
 
 const init = () => {
-  g_state.circle1 = document.querySelector("#circle1");
-  g_state.circle2 = document.querySelector("#circle2");
-  g_state.circle3 = document.querySelector("#circle3");
-  g_state.circle4 = document.querySelector("#circle4");
-  g_state.timer = document.querySelector("#timer");
+  STATE.circle1 = document.querySelector("#circle1");
+  STATE.circle2 = document.querySelector("#circle2");
+  STATE.circle3 = document.querySelector("#circle3");
+  STATE.circle4 = document.querySelector("#circle4");
+  STATE.timer = document.querySelector("#timer");
 
-  const play_btn = document.querySelector("#play");
-  const stop_btn = document.querySelector("#stop");
-  const reset_btn = document.querySelector("#reset");
-  const t_input = document.querySelector("#input");
+  const play_btn = document.querySelector(PLAYBTNID);
+  const stop_btn = document.querySelector(STOPBTNID);
+  const reset_btn = document.querySelector(RESETBTNID);
+  const t_input = document.querySelector(INPUTBTNID);
 
   initCirclesPos();
   stopDisable();

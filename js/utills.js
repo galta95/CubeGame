@@ -1,9 +1,9 @@
 const createElms = () => {
   const rectangle = document.querySelector("#box");
-  rectangle.appendChild(g_state.circle1);
-  rectangle.appendChild(g_state.circle2);
-  rectangle.appendChild(g_state.circle3);
-  rectangle.appendChild(g_state.circle4);
+  rectangle.appendChild(STATE.circle1);
+  rectangle.appendChild(STATE.circle2);
+  rectangle.appendChild(STATE.circle3);
+  rectangle.appendChild(STATE.circle4);
 };
 
 const randomInt = (max) => {
@@ -16,7 +16,8 @@ const updateElmPos = (elm, top, left) => {
 };
 
 const updateElmColor = (elm) => {
-  const colors = ["white", "red", "grey"];
+  const { WHITE, GREY, RED } = COLORS;
+  const colors = [WHITE, GREY, RED];
   elm.style.backgroundColor = colors[randomInt(colors.length)];
 };
 
@@ -37,32 +38,32 @@ const clacPos = (pos, limit, elm) => {
 };
 
 const playDisable = () => {
-  const play_btn = document.querySelector("#play");
+  const play_btn = document.querySelector(PLAYBTNID);
   play_btn.disabled = true;
 };
 
 const playEnable = () => {
-  const play_btn = document.querySelector("#play");
+  const play_btn = document.querySelector(PLAYBTNID);
   play_btn.disabled = false;
 };
 
 const stopDisable = () => {
-  const stop_btn = document.querySelector("#stop");
+  const stop_btn = document.querySelector(STOPBTNID);
   stop_btn.disabled = true;
 };
 
 const stopEnable = () => {
-  const play_btn = document.querySelector("#stop");
+  const play_btn = document.querySelector(STOPBTNID);
   play_btn.disabled = false;
 };
 
 const inputDisable = () => {
-  const input = document.querySelector("#input");
+  const input = document.querySelector(INPUTBTNID);
   input.disabled = true;
 };
 
 const inputEnable = () => {
-  const input_btn = document.querySelector("#input");
+  const input_btn = document.querySelector(INPUTBTNID);
   input.value = "";
   input_btn.disabled = false;
 };
